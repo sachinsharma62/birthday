@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise Flow</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#f5f7fa,#c3cfe2);
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:700px;
+    text-align:center;
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.step{
+    display:none;
+    animation:fade .5s ease;
+}
+
+.step.active{
+    display:block;
+}
+
+h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:18px;
+    margin:15px 0 25px;
+    color:#666;
+}
+
+.btn-wrap{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:none;
+    padding:14px 35px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+.yes{
+    background:#22c55e;
+    color:#fff;
+}
+
+.no{
+    background:#ef4444;
+    color:#fff;
+}
+
+.blur-img{
+    width:100%;
+    max-width:500px;
+    border-radius:15px;
+    filter:blur(20px);
+    transition:1.5s ease;
+    margin-bottom:20px;
+}
+
+.blur-img.clear{
+    filter:blur(0);
+}
+
+.next-section{
+    display:none;
+    margin-top:20px;
+    animation:fade .5s ease;
+}
+
+.next-section.show{
+    display:block;
+}
+
+.next-section p{
+    font-size:22px;
+    font-weight:bold;
+    color:#222;
+    margin-bottom:15px;
+}
+
+.thank-gif{
+    width:280px;
+    max-width:100%;
+}
+
+#thankyou h1{
+    margin-top:20px;
+    color:#22c55e;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- STEP 1 -->
+    <div class="step active" id="step1">
+        <h2>Heyy Pagal <br>Do You Like Surprises?</h2>
+        <p>Click Yes to continue.</p>
+
+        <div class="btn-wrap">
+            <button class="yes" onclick="showBlur(1)">Yes</button>
+            <button class="no" onclick="resetFlow()">No</button>
+        </div>
+    </div>
+
+    <!-- IMAGE 1 -->
+    <div class="step" id="blur1">
+        <img src="images/img-1.webp" class="blur-img" id="img1">
+
+        <p>Do you Want to See my Cuitie Eye?</p>
+
+        <div class="btn-wrap" id="btnWrap1">
+            <button class="yes" onclick="revealImage(1)">Yes</button>
+            <button class="no" onclick="resetFlow()">No</button>
+        </div>
+
+        <div class="next-section" id="nextSection1">
+            <p>😍 You Want More about My Sweetie?</p>
+            <button class="yes" onclick="goNext(1)">Next →</button>
+        </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step2">
+        <h2> You Want to see more my bandaariya?</h2>
+        <p>There is another hidden image waiting.</p>
+
+        <div class="btn-wrap">
+            <button class="yes" onclick="showBlur(2)">Yes</button>
+            <button class="no" onclick="resetFlow()">No</button>
+        </div>
+    </div>
+
+    <!-- IMAGE 2 -->
+    <div class="step" id="blur2">
+        <img src="images/img-2.webp" class="blur-img" id="img2">
+
+        <p>Want to reveal this one too?</p>
+
+        <div class="btn-wrap" id="btnWrap2">
+            <button class="yes" onclick="revealImage(2)">Yes</button>
+            <button class="no" onclick="resetFlow()">No</button>
+        </div>
+
+        <div class="next-section" id="nextSection2">
+            <p>😍 One More Surprise?</p>
+            <button class="yes" onclick="goNext(2)">Next →</button>
+        </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="step3">
+        <h2>One Message!</h2>
+        <p>Some special Word for my special one. you Want to read this word?</p>
+
+        <div class="btn-wrap">
+            <button class="yes" onclick="showBlur(3)">Yes</button>
+            <button class="no" onclick="resetFlow()">No</button>
+        </div>
+    </div>
+
+    <!-- IMAGE 3 -->
+    <div class="step" id="blur3">
+        <img src="images/img-3.jpg" class="blur-img" id="img3">
+
+        <p>Happy Birthday, My Special One ❤️
+            <br>
+            On your special day, I just want to thank you for being such an important part of my life. Every conversation, every smile, every little memory we have shared means more to me than words can explain.
+            <br>
+            You may not realize it, but you have given me some of the happiest moments of my life. Whenever I think about our journey, all the laughter, care, support, and beautiful memories come rushing back and make me smile.
+            <br>
+            To me, you are much more than just a friend. You are someone I deeply cherish, respect, and hold very close to my heart. You have a special place in my life that no one else can ever take.
+            <br>
+            On your birthday, I pray that your life is filled with endless happiness, success, good health, and all the love you deserve. May your smile always stay as beautiful as it is today.
+            <br>
+            Thank you for being you, and thank you for giving me so many unforgettable memories. No matter where life takes us, the moments we have shared will always remain precious to me.
+
+        </p>
+        <p>You want to see next Surprise?</p>
+
+        <div class="btn-wrap" id="btnWrap3">
+            <button class="yes" onclick="revealImage(3)">Yes</button>
+            <button class="no" onclick="resetFlow()">No</button>
+        </div>
+
+        <div class="next-section" id="nextSection3">
+            <p>🎉 Ready For Final Surprise?</p>
+            <button class="yes" onclick="goNext(3)">Finish →</button>
+        </div>
+    </div>
+
+    <!-- THANK YOU -->
+    <div class="step" id="thankyou">
+        <img
+            src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif"
+            class="thank-gif"
+            alt="Thank You"
+        >
+
+        <h1>🎉 Love You My .......... 🎉</h1>
+        <p>Happy Birthday once again, my favorite person. ❤️🎂✨
+            May this year bring you everything your heart wishes for. 💖</p>
+    </div>
+
+</div>
+
+<script>
+
+function hideAll(){
+    document.querySelectorAll('.step').forEach(step=>{
+        step.classList.remove('active');
+    });
+}
+
+function showBlur(step){
+    hideAll();
+    document.getElementById('blur'+step).classList.add('active');
+}
+
+function revealImage(step){
+
+    let img = document.getElementById('img'+step);
+
+    // Remove blur
+    img.classList.add('clear');
+
+    // Hide yes/no buttons
+    document.getElementById('btnWrap'+step).style.display='none';
+
+    // Show next section after blur animation
+    setTimeout(()=>{
+        document.getElementById('nextSection'+step).classList.add('show');
+    },1500);
+}
+
+function goNext(step){
+
+    hideAll();
+
+    if(step === 1){
+        document.getElementById('step2').classList.add('active');
+    }
+    else if(step === 2){
+        document.getElementById('step3').classList.add('active');
+    }
+    else{
+        document.getElementById('thankyou').classList.add('active');
+    }
+}
+
+function resetFlow(){
+
+    document.querySelectorAll('.blur-img').forEach(img=>{
+        img.classList.remove('clear');
+    });
+
+    document.querySelectorAll('.next-section').forEach(sec=>{
+        sec.classList.remove('show');
+    });
+
+    document.querySelectorAll('[id^="btnWrap"]').forEach(btn=>{
+        btn.style.display='flex';
+    });
+
+    hideAll();
+
+    document.getElementById('step1').classList.add('active');
+}
+
+</script>
+
+</body>
+</html>
